@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhinay Goud Adhire — Backend & Data Engineer</title>
+<meta name="description" content="Career page for Abhinay Goud Adhire: backend and data engineering projects, skills, resumes, and contact info.">
+<link rel="icon" href="data:,">
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-elevated:#121b2e;
+    --bg-card:#141d33;
+    --fg:#e9edf3;
+    --fg-muted:#8d99ad;
+    --accent:#e8a33d;
+    --accent-ink:#1a1305;
+    --accent-2:#49c9bd;
+    --border:#22304a;
+    --mono:'Spline Sans Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+    --body-font:'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f4f6fa;
+      --bg-elevated:#ffffff;
+      --bg-card:#ffffff;
+      --fg:#131a26;
+      --fg-muted:#5c6577;
+      --accent:#a9660f;
+      --accent-ink:#fff7ec;
+      --accent-2:#0f8f83;
+      --border:#dde3ee;
+      color-scheme:light;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6fa;
+    --bg-elevated:#ffffff;
+    --bg-card:#ffffff;
+    --fg:#131a26;
+    --fg-muted:#5c6577;
+    --accent:#a9660f;
+    --accent-ink:#fff7ec;
+    --accent-2:#0f8f83;
+    --border:#dde3ee;
+    color-scheme:light;
+  }
+  :root[data-theme="dark"]{ color-scheme:dark; }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  img{max-width:100%;}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--body-font);
+    line-height:1.6;
+  }
+  a{color:var(--accent-2);}
+  h1,h2,h3,.mono{font-family:var(--mono);}
+  h2{text-wrap:balance; letter-spacing:-0.01em;}
+
+  .shell{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 20px 80px;
+    display:grid;
+    grid-template-columns:200px minmax(0,1fr);
+    gap:40px;
+  }
+  @media (max-width:820px){
+    .shell{grid-template-columns:1fr;}
+  }
+
+  .rail{
+    position:sticky;
+    top:28px;
+    align-self:start;
+    padding-top:40px;
+  }
+  @media (max-width:820px){
+    .rail{
+      position:static;
+      padding-top:24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 16px;
+      border-bottom:1px solid var(--border);
+      padding-bottom:16px;
+      margin-bottom:8px;
+    }
+  }
+  .rail-name{font-size:14px; font-weight:600; margin-bottom:4px;}
+  .rail-role{font-size:12px; color:var(--fg-muted); margin-bottom:24px; line-height:1.4;}
+  @media (max-width:820px){
+    .rail-name,.rail-role{display:none;}
+  }
+  .rail nav{display:flex; flex-direction:column; gap:2px;}
+  @media (max-width:820px){
+    .rail nav{flex-direction:row; flex-wrap:wrap; gap:4px 14px;}
+  }
+  .rail a{
+    color:var(--fg-muted);
+    text-decoration:none;
+    font-size:12.5px;
+    padding:6px 8px;
+    margin-left:-8px;
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:color .15s, background .15s;
+  }
+  .rail a:hover{color:var(--fg); background:var(--bg-elevated);}
+  .rail a .dot{width:6px;height:6px;border-radius:50%; background:var(--border); flex:none;}
+  .rail a:hover .dot{background:var(--accent);}
+
+  main{min-width:0; padding-top:48px;}
+
+  section{
+    position:relative;
+    padding:44px 0 44px 28px;
+    border-left:1px dashed var(--border);
+    margin-left:6px;
+  }
+  section:first-of-type{padding-top:0;}
+  section::before{
+    content:"";
+    position:absolute;
+    left:-4.5px; top:44px;
+    width:8px;height:8px;
+    border-radius:50%;
+    background:var(--accent-2);
+    box-shadow:0 0 0 3px var(--bg);
+  }
+  section:first-of-type::before{top:0;}
+  @media (max-width:820px){
+    section{padding-left:20px; margin-left:3px;}
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent-2);
+    margin-bottom:10px;
+    display:block;
+  }
+
+  .hero h1{font-size:clamp(28px,4.4vw,42px); margin:0 0 10px; letter-spacing:-0.015em;}
+  .hero .tagline{font-size:16px; color:var(--fg-muted); max-width:60ch; margin:0 0 22px;}
+  .hero .tagline b{color:var(--fg); font-weight:600;}
+  .badge-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;}
+  .badge{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--fg-muted);
+    border:1px solid var(--border);
+    padding:5px 10px;
+    border-radius:20px;
+    background:var(--bg-elevated);
+  }
+  .cta-row{display:flex; flex-wrap:wrap; gap:10px;}
+  .btn{
+    font-family:var(--body-font);
+    font-size:13.5px;
+    font-weight:600;
+    padding:10px 16px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    background:var(--bg-elevated);
+    color:var(--fg);
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+    transition:transform .12s, border-color .12s;
+  }
+  .btn:hover{border-color:var(--accent-2); transform:translateY(-1px);}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink);}
+  .btn.primary:hover{border-color:var(--accent);}
+  .btn:disabled{opacity:.55; cursor:default; transform:none;}
+
+  p{color:var(--fg); max-width:70ch;}
+  .muted{color:var(--fg-muted);}
+
+  .skill-groups{display:grid; gap:18px; grid-template-columns:repeat(2,minmax(0,1fr));}
+  @media (max-width:640px){ .skill-groups{grid-template-columns:1fr;} }
+  .skill-group h3{
+    font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--fg-muted); margin:0 0 10px; font-weight:600;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    font-size:12.5px; padding:5px 10px; border-radius:6px;
+    background:var(--bg-card); border:1px solid var(--border); color:var(--fg);
+  }
+
+  .project-grid{display:grid; gap:18px;}
+  .project{
+    background:var(--bg-card); border:1px solid var(--border);
+    border-radius:12px; padding:22px 22px 20px;
+  }
+  .project-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:8px;}
+  .project-head h3{font-size:16.5px; margin:0;}
+  .project-kicker{font-size:11.5px; color:var(--fg-muted); font-family:var(--mono);}
+  .project ul{margin:12px 0 14px; padding-left:18px;}
+  .project li{margin-bottom:6px; font-size:14px; color:var(--fg);}
+  .project-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+  .project-links a, .project-links button{font-size:12.5px; padding:7px 12px;}
+
+  .edu-item{margin-bottom:18px;}
+  .edu-item h3{font-size:15px; margin:0 0 2px;}
+  .edu-meta{font-size:12.5px; color:var(--fg-muted); font-family:var(--mono);}
+
+  .resume-grid{display:grid; gap:14px; grid-template-columns:repeat(2,minmax(0,1fr));}
+  @media (max-width:640px){ .resume-grid{grid-template-columns:1fr;} }
+  .resume-card{background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:18px 18px 16px;}
+  .resume-card h3{font-size:14.5px; margin:0 0 6px;}
+  .resume-card p{font-size:13px; color:var(--fg-muted); margin:0 0 14px;}
+
+  .contact-grid{display:grid; gap:10px; grid-template-columns:repeat(2,minmax(0,1fr)); max-width:480px;}
+  @media (max-width:480px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-row{
+    display:flex; align-items:center; gap:10px; font-size:13.5px;
+    padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg-card);
+  }
+  .contact-row .k{font-family:var(--mono); font-size:10.5px; color:var(--fg-muted); text-transform:uppercase; letter-spacing:.06em; width:52px; flex:none;}
+
+  footer{margin-left:6px; padding:28px 0 0 28px; font-size:12px; color:var(--fg-muted);}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="rail-name">Abhinay Goud Adhire</div>
+    <div class="rail-role">Backend &amp; Data Engineer</div>
+    <nav>
+      <a href="#about"><span class="dot"></span>About</a>
+      <a href="#skills"><span class="dot"></span>Skills</a>
+      <a href="#projects"><span class="dot"></span>Projects</a>
+      <a href="#education"><span class="dot"></span>Education</a>
+      <a href="#resume"><span class="dot"></span>Resume</a>
+      <a href="#contact"><span class="dot"></span>Contact</a>
+    </nav>
+  </aside>
+
+  <main>
+    <section class="hero" id="top">
+      <span class="eyebrow">// career.abhinay</span>
+      <h1>Abhinay Goud Adhire</h1>
+      <p class="tagline">
+        <b>Backend &amp; Data Engineer</b> building REST APIs, real-time WebSocket systems,
+        and Spark/Airflow-orchestrated data pipelines. M.S. Computer Science candidate at
+        Cal State San Bernardino, graduating May 2026 — open to full-time backend and
+        data engineering roles.
+      </p>
+      <div class="badge-row">
+        <span class="badge">San Diego, CA</span>
+        <span class="badge">MS CS · CSUSB · May 2026</span>
+        <span class="badge">Open to relocate / remote</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn primary" href="https://www.linkedin.com/in/abhinay-goud-adhire-469896274" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://github.com/abhinay2001" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <span class="eyebrow">01 — About</span>
+      <h2>What I build</h2>
+      <p>
+        I'm a recent Computer Science graduate with hands-on experience across two
+        related tracks. On the <b>backend side</b>, I've built REST APIs, real-time
+        WebSocket systems, and Kafka/Redis-backed message pipelines — comfortable with
+        authentication, relational schema design, and distributed message delivery in
+        systems that hold up under concurrent use and multi-instance deployment.
+      </p>
+      <p>
+        On the <b>data engineering side</b>, I've built orchestrated ELT pipelines with
+        Apache Spark, Airflow, and dbt — from raw ingestion and workflow orchestration
+        through medallion-layered transformations to analytics-ready marts, with an
+        emphasis on data quality, idempotency, and pipeline portability.
+      </p>
+      <p class="muted">
+        Coursework: Database Systems, Operating Systems Concepts &amp; Theory,
+        Software Engineering, Theory of Algorithms &amp; Analysis, Big Data Management,
+        Artificial Intelligence, Numerical Computation.
+      </p>
+    </section>
+
+    <section id="skills">
+      <span class="eyebrow">02 — Skills</span>
+      <h2>Toolbox</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="chip-row">
+            <span class="chip">JavaScript</span><span class="chip">TypeScript</span>
+            <span class="chip">Python</span><span class="chip">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Backend &amp; APIs</h3>
+          <div class="chip-row">
+            <span class="chip">Node.js</span><span class="chip">Express</span>
+            <span class="chip">RESTful API design</span><span class="chip">WebSockets (ws)</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Messaging &amp; Caching</h3>
+          <div class="chip-row">
+            <span class="chip">Apache Kafka (Redpanda)</span><span class="chip">Redis</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Data &amp; Persistence</h3>
+          <div class="chip-row">
+            <span class="chip">MySQL</span><span class="chip">PostgreSQL</span>
+            <span class="chip">Sequelize ORM</span><span class="chip">Relational schema design</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Big Data &amp; Orchestration</h3>
+          <div class="chip-row">
+            <span class="chip">Apache Spark</span><span class="chip">Spark Structured Streaming</span>
+            <span class="chip">Apache Airflow</span><span class="chip">dbt</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Lakehouse &amp; Storage</h3>
+          <div class="chip-row">
+            <span class="chip">Delta Lake</span><span class="chip">Medallion architecture</span>
+            <span class="chip">Databricks</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Auth &amp; Security</h3>
+          <div class="chip-row">
+            <span class="chip">JWT</span><span class="chip">bcrypt</span>
+            <span class="chip">Role-based access control</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tooling</h3>
+          <div class="chip-row">
+            <span class="chip">Git / GitHub</span><span class="chip">Docker &amp; Compose</span>
+            <span class="chip">Postman</span><span class="chip">Vitest</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <span class="eyebrow">03 — Projects</span>
+      <h2>Selected work</h2>
+      <div class="project-grid">
+
+        <article class="project">
+          <div class="project-head">
+            <div>
+              <h3>Interviewer — Real-Time Technical Interview Platform</h3>
+              <div class="project-kicker">Software Engineering course · team project · backend is my work</div>
+            </div>
+          </div>
+          <p class="muted" style="margin-bottom:6px;">
+            Node.js · Express · TypeScript · MySQL · Sequelize · WebSockets · JWT · bcrypt
+          </p>
+          <ul>
+            <li>Built the Express/TypeScript REST API powering a multi-tenant interview platform, including JWT auth, bcrypt password hashing, and role-based access for interviewer and candidate accounts.</li>
+            <li>Modeled a relational schema in MySQL via Sequelize across 6 linked entities to support scheduling, question banks, and session history.</li>
+            <li>Implemented a WebSocket server for real-time collaborative code editing with presence tracking and idle-session cleanup.</li>
+            <li>Built a sandboxed code-execution engine (Node's <code>vm</code> module) running candidate code against test cases under a timeout.</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/abhinay2001/Interviewer" target="_blank" rel="noopener">Repo (my fork) ↗</a>
+            <button class="btn" data-dl="interviewer-deepdive" data-fname="Abhinay-Adhire-Interviewer-Deepdive.pdf">View deep-dive PDF ↗</button>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <div>
+              <h3>Real-Time Chat &amp; Notification Backend</h3>
+              <div class="project-kicker">Independent project</div>
+            </div>
+          </div>
+          <p class="muted" style="margin-bottom:6px;">
+            Node.js · TypeScript · Express · WebSockets · Apache Kafka (Redpanda) · Redis · PostgreSQL · Docker
+          </p>
+          <ul>
+            <li>Built a multi-room chat backend delivering messages durably across multiple backend instances: WebSocket → Kafka (Redpanda) → Postgres, fanned out via Redis pub/sub.</li>
+            <li>Implemented a JWT-authenticated WebSocket protocol backed by a Postgres-enforced room-membership model.</li>
+            <li>Added Redis-backed presence tracking, rate limiting, and a read-receipt system with per-room unread counts.</li>
+            <li>Wrote an end-to-end test suite against the live Docker Compose stack — 14 tests, all passing.</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/abhinay2001/chat-backend" target="_blank" rel="noopener">Repo ↗</a>
+            <button class="btn" data-dl="chat-backend-deepdive" data-fname="Abhinay-Adhire-Chat-Backend-Deepdive.pdf">View deep-dive PDF ↗</button>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <div>
+              <h3>E-commerce Sales Analytics Pipeline</h3>
+              <div class="project-kicker">Big Data Management course</div>
+            </div>
+          </div>
+          <p class="muted" style="margin-bottom:6px;">
+            Apache Spark · Delta Lake · Databricks · PySpark · Spark SQL · Structured Streaming
+          </p>
+          <ul>
+            <li>Built an end-to-end ELT pipeline on Spark and Delta Lake, transforming 1.55M+ records across 9 source tables from a real-world e-commerce dataset.</li>
+            <li>Implemented a medallion lakehouse (Bronze/Silver/Gold) with ACID transactions and schema enforcement.</li>
+            <li>Wrote DataFrame API and Spark SQL transformations — multi-table joins and window functions — powering revenue trends and RFM segmentation.</li>
+            <li>Built a Structured Streaming job computing tumbling-window revenue aggregations on a simulated live-order feed.</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/abhinay2001/ecommerce-sales-pipeline" target="_blank" rel="noopener">Repo ↗</a>
+            <button class="btn" data-dl="ecommerce-deepdive" data-fname="Abhinay-Adhire-Ecommerce-Pipeline-Deepdive.pdf">View deep-dive PDF ↗</button>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-head">
+            <div>
+              <h3>Weather Forecast Accuracy Tracker</h3>
+              <div class="project-kicker">Independent project</div>
+            </div>
+          </div>
+          <p class="muted" style="margin-bottom:6px;">
+            Apache Airflow · dbt · PostgreSQL · Python · Docker
+          </p>
+          <ul>
+            <li>Built an Airflow-orchestrated pipeline ingesting daily forecasts and historical actuals for 12 cities into Postgres, with idempotent upserts guarding against duplicate reruns.</li>
+            <li>Modeled the warehouse in dbt across staging, intermediate, and mart layers, validated with dbt tests.</li>
+            <li>Designed a trailing-window actuals sweep and a historical backfill script to seed 90 days of real overlapping data immediately.</li>
+            <li>Analyzed 8,000+ forecast/actual pairs, finding average error roughly doubles from 1 day out (1.26°C) to 7 days out (2.76°C).</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn" href="https://github.com/abhinay2001/weather-forecast-accuracy" target="_blank" rel="noopener">Repo ↗</a>
+            <button class="btn" data-dl="weather-deepdive" data-fname="Abhinay-Adhire-Weather-Accuracy-Deepdive.pdf">View deep-dive PDF ↗</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="education">
+      <span class="eyebrow">04 — Education</span>
+      <h2>Education</h2>
+      <div class="edu-item">
+        <h3>Master of Science in Computer Science</h3>
+        <div class="edu-meta">California State University, San Bernardino · May 2026</div>
+        <p class="muted" style="margin-top:6px;">Coursework: Database Systems, Operating Systems Concepts &amp; Theory, Software Engineering, Theory of Algorithms &amp; Analysis, Big Data Management, Artificial Intelligence, Numerical Computation.</p>
+      </div>
+      <div class="edu-item">
+        <h3>Bachelor of Technology, Computer Science and Engineering</h3>
+        <div class="edu-meta">GITAM University, Hyderabad, India · May 2023</div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <span class="eyebrow">05 — Resume</span>
+      <h2>My resume</h2>
+      <p class="muted" style="margin-bottom:18px;">Two versions, tailored to the two tracks above — same person, different emphasis.</p>
+      <div class="resume-grid">
+        <div class="resume-card">
+          <h3>Backend Developer</h3>
+          <p>Emphasizes APIs, WebSockets, auth, and messaging (Kafka/Redis).</p>
+          <button class="btn primary" data-dl="resume-backend" data-fname="Abhinay-Adhire-Resume-Backend-Developer.pdf">View PDF ↗</button>
+        </div>
+        <div class="resume-card">
+          <h3>Data Engineer</h3>
+          <p>Emphasizes Spark, Airflow, dbt, and lakehouse pipelines.</p>
+          <button class="btn primary" data-dl="resume-dataeng" data-fname="Abhinay-Adhire-Resume-Data-Engineer.pdf">View PDF ↗</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <span class="eyebrow">06 — Contact</span>
+      <h2>Get in touch</h2>
+      <div class="contact-grid">
+        <div class="contact-row">
+          <span class="k">Email</span>
+          <span id="email-text">abhinaygoudadhire@gmail.com</span>
+          <button class="btn" style="padding:4px 8px; font-size:11px; margin-left:auto;" id="copy-email">Copy</button>
+        </div>
+        <div class="contact-row">
+          <span class="k">Phone</span>
+          <span>619-636-2515</span>
+        </div>
+        <div class="contact-row">
+          <span class="k">Linked</span>
+          <a href="https://www.linkedin.com/in/abhinay-goud-adhire-469896274" target="_blank" rel="noopener">/abhinay-goud-adhire</a>
+        </div>
+        <div class="contact-row">
+          <span class="k">GitHub</span>
+          <a href="https://github.com/abhinay2001" target="_blank" rel="noopener">/abhinay2001</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>Abhinay Goud Adhire · San Diego, CA · built as a single career reference page.</footer>
+  </main>
+</div>
+
+<script src="assets.js"></script>
+<script>
+  (function(){
+    function b64ToBlob(b64, mime){
+      var byteChars = atob(b64);
+      var byteNumbers = new Array(byteChars.length);
+      for (var i = 0; i < byteChars.length; i++) byteNumbers[i] = byteChars.charCodeAt(i);
+      var byteArray = new Uint8Array(byteNumbers);
+      return new Blob([byteArray], {type: mime || 'application/pdf'});
+    }
+
+    function handleView(key, btn){
+      var data = window.CAREER_ASSETS && window.CAREER_ASSETS[key];
+      if (!data){ return; }
+      var blob = b64ToBlob(data, 'application/pdf');
+      var url = URL.createObjectURL(blob);
+      var original = btn.textContent;
+      window.open(url, '_blank');
+      btn.textContent = 'Opened ↗';
+      setTimeout(function(){ btn.textContent = original; }, 1800);
+    }
+
+    document.querySelectorAll('button[data-dl]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        handleView(btn.getAttribute('data-dl'), btn);
+      });
+    });
+
+    var copyBtn = document.getElementById('copy-email');
+    if (copyBtn){
+      copyBtn.addEventListener('click', function(){
+        var text = document.getElementById('email-text').textContent;
+        var done = function(){
+          var original = copyBtn.textContent;
+          copyBtn.textContent = 'Copied';
+          setTimeout(function(){ copyBtn.textContent = original; }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(done).catch(function(){
+            var range = document.createRange();
+            range.selectNode(document.getElementById('email-text'));
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            done();
+          });
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
